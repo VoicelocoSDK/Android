@@ -3,6 +3,8 @@ package com.voiceloco.android.sampleapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.voiceloco.android.Register;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
