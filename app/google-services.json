@@ -1,0 +1,188 @@
+{
+  "project_info": {
+    "project_number": "980385837727",
+    "firebase_url": "https://typhoneb2b.firebaseio.com",
+    "project_id": "typhoneb2b"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980385837727:android:df343dca56027a53",
+        "android_client_info": {
+          "package_name": "com.lotte.arah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980385837727-cqoag7rtno30hmrr4qtamou68patca8n.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "980385837727-pibe7a8adgun6fepsic0mg4m8thf78t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO7aQDg6sw63qltEditxlXkrG6wRLkl-Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980385837727:android:ce1e75ac314d8483",
+        "android_client_info": {
+          "package_name": "com.sejong.smartbiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980385837727-cqoag7rtno30hmrr4qtamou68patca8n.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "980385837727-pibe7a8adgun6fepsic0mg4m8thf78t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO7aQDg6sw63qltEditxlXkrG6wRLkl-Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980385837727:android:439aebf6e0a9a99b",
+        "android_client_info": {
+          "package_name": "com.voiceloco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980385837727-cqoag7rtno30hmrr4qtamou68patca8n.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "980385837727-pibe7a8adgun6fepsic0mg4m8thf78t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO7aQDg6sw63qltEditxlXkrG6wRLkl-Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980385837727:android:9e8f9f85de499d24",
+        "android_client_info": {
+          "package_name": "com.voiceloco.typhone_b2b"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980385837727-cqoag7rtno30hmrr4qtamou68patca8n.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "980385837727-pibe7a8adgun6fepsic0mg4m8thf78t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO7aQDg6sw63qltEditxlXkrG6wRLkl-Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-68896731-2"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980385837727:android:62f0463e6a2dae4b",
+        "android_client_info": {
+          "package_name": "com.voiceloco.voice.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980385837727-cqoag7rtno30hmrr4qtamou68patca8n.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "980385837727-pibe7a8adgun6fepsic0mg4m8thf78t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO7aQDg6sw63qltEditxlXkrG6wRLkl-Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
