@@ -68,6 +68,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call);
+        Log.d(TAG, "onCreate");
 
         CallManager callManager = CallManager.getInstance();
         callManager.add((CallObserver.Invite) this);
@@ -109,6 +110,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
             rlSend.setVisibility(View.VISIBLE);
             rlRecv.setVisibility(View.GONE);
         } else if (MainActivity.RECV.equals(intent.getStringExtra(MainActivity.CALL_DIRECTION))) {
+            Log.d(TAG, "incomingCall from not fcm");
             counterpartyAccount = intent.getStringExtra(MainActivity.COUNTERPARTY_ACCOUNT);
             myAccount = intent.getStringExtra(MainActivity.MY_ACCOUNT);
             tvCallState.setText(String.format(Locale.getDefault(), "receive call from %s", counterpartyAccount));
@@ -119,8 +121,8 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (ACTION_INCOMING_CALL.equals(intent.getAction())) {
-            Log.d(TAG, "onIncomingCall");
-            isRegistered = true;
+            Log.d(TAG, "onIncomingCall from push");
+//            isRegistered = true;
 
             final String fcmToken = FirebaseInstanceId.getInstance().getToken();
             if (fcmToken!=null && !fcmToken.equals("")) {
@@ -131,6 +133,18 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
         handler = new Handler();
     }
 
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+//        Log.d(TAG, "onNewIntent");
+////        isRegistered = true;
+//
+//        final String fcmToken = FirebaseInstanceId.getInstance().getToken();
+//        if (fcmToken!=null && !fcmToken.equals("")) {
+//            getAccessToken();
+//        }
+//    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -139,9 +153,9 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
         callManager.delete((CallObserver.Invite) this);
         callManager.delete((CallObserver.Call) this);
         callManager.delete((CallObserver.AdvancedCall) this);
-        if (isRegistered) {
-            Register.getInstance().stop();
-        }
+//        if (isRegistered) {
+//            Register.getInstance().stop();
+//        }
         abandonAudioFocus();
         audioManager.setMode(AudioManager.MODE_NORMAL);
     }
@@ -200,6 +214,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onIncomingCall(String counterpartyAccount) {
+        Log.d(TAG, "onIncomingCall");
         tvCallState.setText(String.format(Locale.getDefault(), "receive call from %s", counterpartyAccount));
         rlSend.setVisibility(View.GONE);
         rlRecv.setVisibility(View.VISIBLE);
@@ -209,6 +224,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onCanceledCall(CallException callException) {
+        Log.d(TAG, "onCanceledCall");
         tvCallState.setText(String.format(Locale.getDefault(), "code : %d, message : %s", callException.getErrCode(), callException.getErrMessage()));
         tvInformation.setText("통화 종료");
         rlSend.setVisibility(View.GONE);
@@ -299,7 +315,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("userId", MainActivity.id);
-            Log.d("Voiceloco", jsonObject.toString());
+            Log.d(TAG, jsonObject.toString());
             new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString(), MainActivity.apiKey);
 
         } catch (JSONException e) {

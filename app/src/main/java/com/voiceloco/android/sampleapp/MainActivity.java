@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String MY_ACCOUNT = "myAccount";
     public static final String COUNTERPARTY_ACCOUNT = "counterpartyAccount";
     public static final String APP_ID = "appId";
-    public static final String id = "nexus";
+    public static final String id = "s8";
     public static final String appId = "testAppId";
     public static final String apiKey = "testApiKey";
     public String fcmToken;
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra(MY_ACCOUNT, id);
                 intent.putExtra(COUNTERPARTY_ACCOUNT, etId.getText().toString());
                 intent.putExtra(APP_ID, appId);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(etId.getWindowToken(), 0);
@@ -136,9 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra(CALL_DIRECTION, RECV);
         intent.putExtra(MY_ACCOUNT, id);
         intent.putExtra(COUNTERPARTY_ACCOUNT, counterpartyAccount);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        //call Activity
     }
 
     @Override

@@ -63,7 +63,7 @@ public class VoicelocoFirebaseMessagingService extends FirebaseMessagingService 
                     StringTokenizer tokenizer = new StringTokenizer(fromAccount, "@");
                     intent.putExtra(MainActivity.COUNTERPARTY_ACCOUNT, tokenizer.nextToken());
 //                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     this.startActivity(intent);
                     break;
             }
