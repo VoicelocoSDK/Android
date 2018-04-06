@@ -45,8 +45,6 @@
     register.start(MainActivity.this, id, appId, result, fcmToken);
   ```
 
-  .
-
 * ### 권한 설정
 
   보이스로코 Call SDK를 사용하여 전화를 걸거나 받기 위해서는 fcmToken을 Voiceloco 서버에 등록해야 합니다. 등록 방법은 아래 소스코드와 같습니다.
@@ -92,23 +90,7 @@
         android:layout_alignParentRight="true"
         android:padding="15dp"/>
   ```
-
-* ### 앱 종료
-
-  앱 종료시에는 미디어 서버에 등록과 관찰자들의 구독을 아래와 같이 해제합니다.
-
-  ```
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(broadcastReceiver);
-        Register.getInstance().stop();
-
-        CallManager callManager = CallManager.getInstance();
-        callManager.delete((CallObserver.Register) this);
-        callManager.delete((CallObserver.Invite) this);
-    }
-  ```
-
+  
 > ## 기본 동작
 
 * ### 구독자 등록
@@ -159,5 +141,20 @@
         makeRingBackTone();
     }
   ```
+* ### 앱 종료
+
+    앱 종료시에는 미디어 서버에 등록과 관찰자들의 구독을 아래와 같이 해제합니다.
+  
+    ```
+      protected void onDestroy() {
+          super.onDestroy();
+          unregisterReceiver(broadcastReceiver);
+          Register.getInstance().stop();
+  
+          CallManager callManager = CallManager.getInstance();
+          callManager.delete((CallObserver.Register) this);
+          callManager.delete((CallObserver.Invite) this);
+      }
+    ```
 
 
