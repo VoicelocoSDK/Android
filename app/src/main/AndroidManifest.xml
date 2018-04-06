@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.voiceloco.android.sampleapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,21 +23,20 @@
         </activity>
 
         <!-- [START fcm_listener] -->
-        <service
-            android:name=".fcm.VoicelocoFirebaseMessagingService">
+        <service android:name=".fcm.VoicelocoFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <!-- [END fcm_listener] -->
         <!-- [START instanceId_listener] -->
-        <service
-            android:name=".fcm.VoicelocoFirebaseInstanceIDService">
+        <service android:name=".fcm.VoicelocoFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <!-- [END instanceId_listener] -->
+        <activity android:name=".CallActivity"></activity>
     </application>
 
 </manifest>
