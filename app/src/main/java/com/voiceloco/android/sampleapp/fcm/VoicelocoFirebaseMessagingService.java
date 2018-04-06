@@ -1,13 +1,19 @@
 package com.voiceloco.android.sampleapp.fcm;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.voiceloco.android.sampleapp.CallActivity;
+import com.voiceloco.android.sampleapp.MainActivity;
 
 import java.util.Map;
+import java.util.StringTokenizer;
 
 public class VoicelocoFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -17,6 +23,7 @@ public class VoicelocoFirebaseMessagingService extends FirebaseMessagingService 
     private static final String VOICE_CHANNEL = "default";
 
     private NotificationManager notificationManager;
+    private Notification.Builder mBuilder;
 
     @Override
     public void onCreate() {
@@ -51,6 +58,13 @@ public class VoicelocoFirebaseMessagingService extends FirebaseMessagingService 
         if (event != null) {
             switch (event) {
                 case "call" :
+                    Intent intent = new Intent(this, CallActivity.class);
+                    intent.setAction(CallActivity.ACTION_INCOMING_CALL);
+                    StringTokenizer tokenizer = new StringTokenizer(fromAccount, "@");
+                    intent.putExtra(MainActivity.COUNTERPARTY_ACCOUNT, tokenizer.nextToken());
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    this.startActivity(intent);
                     break;
             }
         }

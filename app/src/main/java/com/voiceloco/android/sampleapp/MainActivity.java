@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String MY_ACCOUNT = "myAccount";
     public static final String COUNTERPARTY_ACCOUNT = "counterpartyAccount";
     public static final String APP_ID = "appId";
-    public static final String id = "s4";
+    public static final String id = "g3";
     public static final String appId = "testAppId";
     public String fcmToken;
 
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
+                Log.e(TAG,"intent action - " + intent.getAction());
                 if (intent.getAction().equals("action_fcm_token")) {
                     fcmToken = FirebaseInstanceId.getInstance().getToken();
                     getAccessToken();
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerReceiver(broadcastReceiver, intentFilter);
 
         fcmToken = FirebaseInstanceId.getInstance().getToken();
+        Log.e(TAG, "fcmToken - " + fcmToken);
         if (fcmToken!=null && !fcmToken.equals("")) {
             getAccessToken();
         }

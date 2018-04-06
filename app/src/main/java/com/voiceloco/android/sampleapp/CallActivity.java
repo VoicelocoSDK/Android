@@ -191,7 +191,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.iv_reject_message:
                 break;
             case R.id.iv_accept:
-                callInfo = new Voice().accept(counterpartyAccount);
+                callInfo = new Voice().accept(counterpartyAccount,appId);
                 rlSend.setVisibility(View.VISIBLE);
                 rlRecv.setVisibility(View.GONE);
                 break;
@@ -298,7 +298,8 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
     private void getAccessToken() {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("userId", "youngtaek");
+            Log.d(TAG, "myAccount " + MainActivity.id);
+            jsonObject.put("userId", myAccount);
             Log.d("Voiceloco", jsonObject.toString());
             new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString());
 
