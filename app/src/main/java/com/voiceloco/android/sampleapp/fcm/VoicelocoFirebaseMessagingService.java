@@ -43,10 +43,8 @@ public class VoicelocoFirebaseMessagingService extends FirebaseMessagingService 
 
         Map<String, String> messageMap = remoteMessage.getData();
         String event = messageMap.get("eventType");
-        String title = messageMap.get("title");
         String message = messageMap.get("message");
 
-        Log.d(TAG, "Title: " + title);
         Log.d(TAG, "Message: " + message);
         Log.d(TAG, "eventType: " + event);
 
