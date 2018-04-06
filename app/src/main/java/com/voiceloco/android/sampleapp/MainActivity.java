@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String MY_ACCOUNT = "myAccount";
     public static final String COUNTERPARTY_ACCOUNT = "counterpartyAccount";
     public static final String APP_ID = "appId";
-    public static final String id = "s8";
+    public static final String id = "nexus";
     public static final String appId = "testAppId";
     public static final String apiKey = "testApiKey";
     public String fcmToken;

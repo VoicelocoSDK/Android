@@ -60,9 +60,7 @@ public class VoicelocoFirebaseMessagingService extends FirebaseMessagingService 
                 case "call" :
                     Intent intent = new Intent(this, CallActivity.class);
                     intent.setAction(CallActivity.ACTION_INCOMING_CALL);
-                    StringTokenizer tokenizer = new StringTokenizer(fromAccount, "@");
-                    intent.putExtra(MainActivity.COUNTERPARTY_ACCOUNT, tokenizer.nextToken());
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra(MainActivity.COUNTERPARTY_ACCOUNT, fromAccount);
                     intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     this.startActivity(intent);
                     break;

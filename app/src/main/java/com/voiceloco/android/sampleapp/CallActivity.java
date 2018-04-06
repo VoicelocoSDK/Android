@@ -122,7 +122,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
 
         if (ACTION_INCOMING_CALL.equals(intent.getAction())) {
             Log.d(TAG, "onIncomingCall from push");
-//            isRegistered = true;
+            isRegistered = true;
 
             final String fcmToken = FirebaseInstanceId.getInstance().getToken();
             if (fcmToken!=null && !fcmToken.equals("")) {
@@ -133,17 +133,20 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
         handler = new Handler();
     }
 
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//        Log.d(TAG, "onNewIntent");
-////        isRegistered = true;
-//
-//        final String fcmToken = FirebaseInstanceId.getInstance().getToken();
-//        if (fcmToken!=null && !fcmToken.equals("")) {
-//            getAccessToken();
-//        }
-//    }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.d(TAG, "onNewIntent");if (MainActivity.RECV.equals(intent.getStringExtra(MainActivity.CALL_DIRECTION))) {
+            Log.d(TAG, "incomingCall from not fcm");
+            counterpartyAccount = intent.getStringExtra(MainActivity.COUNTERPARTY_ACCOUNT);
+            myAccount = intent.getStringExtra(MainActivity.MY_ACCOUNT);
+            tvCallState.setText(String.format(Locale.getDefault(), "receive call from %s", counterpartyAccount));
+            rlSend.setVisibility(View.GONE);
+            rlRecv.setVisibility(View.VISIBLE);
+            makeRingtone();
+            makeVibrator();
+        }
+    }
 
     @Override
     protected void onDestroy() {
@@ -153,9 +156,9 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
         callManager.delete((CallObserver.Invite) this);
         callManager.delete((CallObserver.Call) this);
         callManager.delete((CallObserver.AdvancedCall) this);
-//        if (isRegistered) {
-//            Register.getInstance().stop();
-//        }
+        if (isRegistered) {
+            Register.getInstance().stop();
+        }
         abandonAudioFocus();
         audioManager.setMode(AudioManager.MODE_NORMAL);
     }
