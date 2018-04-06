@@ -298,10 +298,9 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
     private void getAccessToken() {
         JSONObject jsonObject = new JSONObject();
         try {
-            Log.d(TAG, "myAccount " + MainActivity.id);
-            jsonObject.put("userId", myAccount);
+            jsonObject.put("userId", MainActivity.id);
             Log.d("Voiceloco", jsonObject.toString());
-            new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString());
+            new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString(), MainActivity.apiKey);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -313,7 +312,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         protected String doInBackground(String... params) {
-            return AccessToken.POST("/apps/" + MainActivity.appId + "/users", params[0]);
+            return AccessToken.POST("/apps/" + MainActivity.appId + "/users", params[0], params[1]);
         }
 
         @Override

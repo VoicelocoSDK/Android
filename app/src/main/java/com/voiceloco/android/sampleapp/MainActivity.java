@@ -35,8 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String MY_ACCOUNT = "myAccount";
     public static final String COUNTERPARTY_ACCOUNT = "counterpartyAccount";
     public static final String APP_ID = "appId";
-    public static final String id = "g3";
+    public static final String id = "nexus";
     public static final String appId = "testAppId";
+    public static final String apiKey = "testApiKey";
     public String fcmToken;
 
     private BroadcastReceiver broadcastReceiver;
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("userId", id);
-            new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString());
+            new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString(), apiKey);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected String doInBackground(String... params) {
             Log.d(TAG, params[0]);
-            return AccessToken.POST("/apps/testAppId/users", params[0]);
+            return AccessToken.POST("/apps/"+appId+"/users", params[0], params[1]);
         }
 
         @Override

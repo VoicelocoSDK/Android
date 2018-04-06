@@ -20,7 +20,7 @@ public class AccessToken {
     private static final int TIMEOUT = 10000;
     private static final String timeout = "timeout";
 
-    static String POST(String subUrl, String body){
+    static String POST(String subUrl, String body, String apiKey){
 //        CookieSaver cookieSaver = CookieSaver.getInstance();
         String response = "";
         try {
@@ -44,7 +44,7 @@ public class AccessToken {
 
             http.setRequestProperty("Accept", "application/json");
             http.setRequestProperty("Content-type", "application/json");
-            http.setRequestProperty("Api-Key", "adfasdf");
+            http.setRequestProperty("Api-Key", apiKey);
 
             http.setDoOutput(true);
             http.setDoInput(true);
@@ -74,17 +74,6 @@ public class AccessToken {
             } else {
                 response = null;
             }
-
-//            Iterator<String> it = headers.keySet().iterator();
-//            while(it.hasNext()) {
-//                String key = it.next();
-//                List<String> values = headers.get(key);
-//                StringBuffer sb = new StringBuffer();
-//                for(int i=0; i<values.size(); i++) {
-//                    sb.append(";" + values.get(i));
-//                }
-//                Log.d("AccessToken", key + "=" + sb.toString().substring(1));
-//            }
 
             is.close();
             baos.close();
