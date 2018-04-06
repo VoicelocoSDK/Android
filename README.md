@@ -22,21 +22,29 @@
 
   dependencies {
     // The Voice SDK resides on jCenter
-    compile 'com.voiceloco:android:0.0.14@aar'
+    compile 'com.voiceloco:android:0.1.0@aar'
   }
   ```
 
-  최신 버전은 현재 0.0.14 버전입니다.
+  최신 버전은 현재 0.1.0 버전입니다.
 
 * ### AccessToken 요청 및 미디어 서버 등록
 
   보이스로코 Call SDK를 사용하기 위해서는 사전에 등록된 appId와 UserId를 사용하여 accessToken을 받아서 미디어 서버에 등록을 해야 합니다. accessToken을 받아오는 부분은 아래 코드입니다.
 
   ```
-    AccessToken.POST("/apps/testAppId/users", params[0]);
+  jsonObject.put("userId", id);
+  new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString(), apiKey);
   ```
 
-  **위 과정은 자체 서버를 제작하여 accesstoken의 유출을 방지할 것을 추천합니다**
+  **위 과정은 자체 서버를 제작하여 accesstoken의 유출을 방지할 것을 추천합니다** <br>
+   현재 SampleApp에서는 appId, apiKey, id를 아래와 같이 임의로 정의하여 사용중입니다. <br>
+    실제 개발에서는 실제 등록된 데이터를 사용하여야 합니다.
+    ```
+    public static final String id = "nexus";
+    public static final String appId = "testAppId";
+    public static final String apiKey = "testApiKey";
+    ```
 
   받은 AccessToken을 통해 미디어 서버에 등록하는 방법은 SDK의 Register 클레스를 이용합니다.
 
