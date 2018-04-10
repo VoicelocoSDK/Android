@@ -38,12 +38,13 @@
   ```
 
   **위 과정은 자체 서버를 제작하여 accesstoken의 유출을 방지할 것을 추천합니다** <br>
-   현재 SampleApp에서는 appId, apiKey, id를 아래와 같이 임의로 정의하여 사용중입니다. <br>
-    실제 개발에서는 실제 등록된 데이터를 사용하여야 합니다.
+   현재 SampleApp에서는 appId, apiKey, id를 아래 부분에 정의해서 사용해야합니다. <br>
+    실제 개발에서는 실제 등록된 데이터를 사용하여야 합니다. <br>
+    등록을 원하시면 support@voiceloco.com로 연락하면 등록해드립니다. 
     ```
-    public static final String id = "nexus";
-    public static final String appId = "testAppId";
-    public static final String apiKey = "testApiKey";
+    public static final String id = "";
+    public static final String appId = "";
+    public static final String apiKey = "";
     ```
 
   받은 AccessToken을 통해 미디어 서버에 등록하는 방법은 SDK의 Register 클레스를 이용합니다.
