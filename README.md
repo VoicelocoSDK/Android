@@ -14,19 +14,16 @@
   repositories {
         mavenCentral()
         jcenter()
-        maven {
-            url  "http://dl.bintray.com/voiceloco-official/maven/"
-        }
     }
   }
 
   dependencies {
     // The Voice SDK resides on jCenter
-    compile 'com.voiceloco:android:0.1.0@aar'
+    compile 'com.voiceloco:android:0.2.0'
   }
   ```
 
-  최신 버전은 현재 0.1.0 버전입니다.
+  최신 버전은 현재 0.2.0 버전입니다.
 
 * ### AccessToken 요청 및 미디어 서버 등록
 
@@ -37,7 +34,7 @@
   new GetAccessToken().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, jsonObject.toString(), apiKey);
   ```
 
-  **위 과정은 자체 서버를 제작하여 accesstoken의 유출을 방지할 것을 추천합니다** <br>
+  **위 과정은 자체 서버를 제작하여 accessToken의 유출을 방지할 것을 추천합니다** <br>
    현재 SampleApp에서는 appId, apiKey, id를 아래 부분에 정의해서 사용해야합니다. <br>
     실제 개발에서는 실제 등록된 데이터를 사용하여야 합니다. <br>
     등록을 원하시면 support@voiceloco.com로 연락하면 등록해드립니다. 
@@ -108,7 +105,7 @@
 
   ```
   CallManager callManager = CallManager.getInstance();
-  callManager.add((CallObserver.Invite) this);
+  callManager.add((CallObserver.Register) this);
   callManager.add((CallObserver.Call) this);
   callManager.add((CallObserver.AdvancedCall) this);
   ```
@@ -121,11 +118,11 @@
   if (event != null) {
       switch (event) {
           case "call" :
-              Intent intent = new Intent(this, CallActivity.class);
-              intent.setAction(CallActivity.ACTION_INCOMING_CALL);
+              Intent intent = new Intent(this, MainActivity.class);
+              intent.setAction(MainActivity.ACTION_INCOMING_CALL);
               StringTokenizer tokenizer = new StringTokenizer(fromAccount, "@");
               intent.putExtra(MainActivity.COUNTERPARTY_ACCOUNT, tokenizer.nextToken());
-              intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+              intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
               this.startActivity(intent);
               break;
       }
