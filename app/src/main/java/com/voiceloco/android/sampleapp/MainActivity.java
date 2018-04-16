@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String ACTION_CANCEL_CALL = "cancelCall";
     public static final String ACTION_FCM_TOKEN = "actionFCMToken";
     public static final String COUNTERPARTY_ACCOUNT = "counterpartyAccount";
-
+    
     public static final String id = "";
     public static final String appId = "";
     public static final String apiKey = "";
