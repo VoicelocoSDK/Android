@@ -36,7 +36,6 @@
             </intent-filter>
         </service>
         <!-- [END instanceId_listener] -->
-        <activity android:name=".CallActivity"></activity>
     </application>
 
 </manifest>
