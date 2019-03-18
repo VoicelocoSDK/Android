@@ -19,7 +19,7 @@
 
   dependencies {
     // The Voice SDK resides on jCenter
-    compile 'com.voiceloco:android:0.2.0'
+    compile 'com.voiceloco:android:0.2.2'
   }
   ```
 
