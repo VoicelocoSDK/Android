@@ -8,6 +8,7 @@ buildscript {
 //        maven {
 //            url  "http://dl.bintray.com/voiceloco-official/maven/"
 //        }
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
