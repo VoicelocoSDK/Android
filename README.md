@@ -19,11 +19,11 @@
 
   dependencies {
     // The Voice SDK resides on jCenter
-    compile 'com.voiceloco:android:0.2.2'
+    compile 'com.voiceloco:android:0.2.3'
   }
   ```
 
-  최신 버전은 현재 0.2.2 버전입니다.
+  최신 버전은 현재 0.2.3 버전입니다.
 
 * ### AccessToken 요청 및 미디어 서버 등록
 
